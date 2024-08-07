@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.6">
   <diagram name="第 1 页" id="H_8We8UubYNgWz_qhoj8">
-    <mxGraphModel dx="1026" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="977" dy="535" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -152,6 +152,45 @@
         </mxCell>
         <mxCell id="DIT8Or7SR0M83sle03Dc-6" value="+ virtual std::unique_ptr&amp;lt;RpcTransportCtx&amp;gt; newClientCtx()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="DIT8Or7SR0M83sle03Dc-1" vertex="1">
           <mxGeometry y="112" width="360" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-1" value="RpcTransportCtxFactoryTls" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="332" width="310" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-2" value="+ mCertVerifier:&amp;nbsp;RpcCertificateVerifier" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Xz2xReRFm8YaMoCnnHiE-1">
+          <mxGeometry y="26" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-13" value="+ mAuth:&amp;nbsp;RpcAuth" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Xz2xReRFm8YaMoCnnHiE-1">
+          <mxGeometry y="52" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-5" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.474;entryY=1.121;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Xz2xReRFm8YaMoCnnHiE-1" target="DIT8Or7SR0M83sle03Dc-6">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1730" y="340" as="sourcePoint" />
+            <mxPoint x="1800" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-6" value="RpcCertificateVerifier" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2050" y="90" width="350" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-9" value="+ &amp;nbsp;virtual status_t verify(const SSL* ssl, uint8_t* outAlert) = 0;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Xz2xReRFm8YaMoCnnHiE-6">
+          <mxGeometry y="26" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-10" value="RpcAuth" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2050" y="190" width="350" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-11" value="+ [[nodiscard]] virtual status_t configure(SSL_CTX* ctx) = 0;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="Xz2xReRFm8YaMoCnnHiE-10">
+          <mxGeometry y="26" width="350" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-18" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Xz2xReRFm8YaMoCnnHiE-2" target="Xz2xReRFm8YaMoCnnHiE-9">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1890" y="250" as="sourcePoint" />
+            <mxPoint x="2050" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xz2xReRFm8YaMoCnnHiE-19" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Xz2xReRFm8YaMoCnnHiE-13" target="Xz2xReRFm8YaMoCnnHiE-11">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1910" y="381" as="sourcePoint" />
+            <mxPoint x="2060" y="139" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
